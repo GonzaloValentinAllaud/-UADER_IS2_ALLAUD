@@ -6,6 +6,7 @@
 #* Creative commons                                                        *
 #*-------------------------------------------------------------------------*
 import sys
+
  
 def factorial(num): 
      if num < 0: 
@@ -20,9 +21,23 @@ def factorial(num):
              num -= 1
          return fact 
  
+def calcular_factoriales(desde, hasta):
+     for num in range(desde, hasta + 1):
+         print(f"Factorial {num}! es {factorial(num)}")
+ 
 if len(sys.argv) < 2:
      num = int(input("Ingrese un número: "))
+     entrada = input("Ingrese un rango (ej. 4-8): ")
 else:
      num = int(sys.argv[1])
+     entrada = sys.argv[1]
  
 print("Factorial", num, "! es", factorial(num))
+try:
+     desde, hasta = map(int, entrada.split('-'))
+     if desde > hasta:
+         print("El primer número debe ser menor o igual al segundo.")
+     else:
+         calcular_factoriales(desde, hasta)
+except ValueError:
+     print("Formato inválido. Ingrese dos números separados por un guion (ej. 4-8).")
