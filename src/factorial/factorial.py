@@ -26,3 +26,18 @@ if len(sys.argv) == 0:
 num=int(sys.argv[1])
 print("Factorial ",num,"! es ", factorial(num)) 
 
+#---#
+
+import sys
+import math
+
+def calcular_factorial(n):
+    return math.factorial(n)
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        num = int(sys.argv[1])
+    else:
+        num = int(input("Ingrese un número: "))
+
+    print(f"{num}! = {calcular_factorial(num)}")
